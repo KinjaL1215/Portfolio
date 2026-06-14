@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #111011;
+    --color-surface: #1c1a1f;
+    --color-card: #282629;
+    --color-border: rgba(149, 150, 80, 0.15);
+    --color-gold: #959650;
+    --color-gold-light: #d4c6a3;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: #e9e7e2;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #111011;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gold);
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background: rgba(149, 150, 80, 0.3);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl;
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    @apply border-yellow-500/30 bg-white/10;
+    box-shadow: 0 8px 32px rgba(149, 150, 80, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #959650 0%, #d4c6a3 50%, #797b3d 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #959650, #d4c6a3, #797b3d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl font-bold;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 rounded-full font-semibold transition-all duration-300;
+    color: #111011;
+    background: linear-gradient(135deg, #959650, #d4c6a3);
+    box-shadow: 0 4px 20px rgba(149, 150, 80, 0.4);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 6px 30px rgba(149, 150, 80, 0.6);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .btn-outline {
+    @apply px-8 py-3 rounded-full font-semibold border-2 border-yellow-500 text-yellow-400 transition-all duration-300;
+  }
+
+  .btn-outline:hover {
+    @apply bg-yellow-500/10;
+    box-shadow: 0 4px 20px rgba(149, 150, 80, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .nav-link {
+    @apply relative text-gray-300 font-medium transition-colors duration-200 hover:text-yellow-400;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .glow-border {
+    box-shadow: 0 0 0 1px rgba(149, 150, 80, 0.3), 0 0 30px rgba(149, 150, 80, 0.1);
+  }
+}
+
+@layer utilities {
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  .mesh-gradient {
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(149, 150, 80, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(163, 125, 106, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(212, 198, 163, 0.03) 0%, transparent 50%);
+  }
+}
+
+/* Loader */
+.loader-ring {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(149, 150, 80, 0.2);
+  border-top: 3px solid #959650;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Progress bar animation */
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: var(--progress); }
+}
+
+.progress-bar-fill {
+  animation: progressFill 1.5s ease forwards;
+}
+
+/* Particle dots */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(149, 150, 80, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Typing cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: #959650;
+}
+
+/* Glow effect */
+.gold-glow {
+  box-shadow: 0 0 40px rgba(149, 150, 80, 0.2), 0 0 80px rgba(149, 150, 80, 0.05);
+}
+
+/* Timeline */
+.timeline-line {
+  background: linear-gradient(to bottom, #959650, transparent);
+}
+
+/* Smooth image fade */
+img {
+  transition: opacity 0.3s ease;
+}
+
+/* Section spacing */
+section {
+  position: relative;
+  overflow: hidden;
+}
