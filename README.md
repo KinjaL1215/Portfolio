@@ -1,4 +1,4 @@
-# Mohammad kinjal — Personal Portfolio Website
+# kinjal Kharva — Personal Portfolio Website
 
 A modern personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion.
 

@@ -27,7 +27,7 @@ const skillCategories = [
     color: '#0284c7',
     skills: [
       { name: 'Python & Java', level: 88 },
-      { name: 'C / C++', level: 80 },
+      { name: 'C', level: 80 },
       { name: 'JavaScript', level: 82 },
       { name: 'HTML & CSS', level: 85 },
     ],
