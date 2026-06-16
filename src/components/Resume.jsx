@@ -24,8 +24,8 @@ const achievements = [
     type: 'Self-paced',
     desc: 'Maintains active algorithmic profiles on LeetCode and CodeChef, focusing on data structures, graphs, dynamic programming, and complexity tuning.',
     highlights: [
-      'LeetCode Rating: 1463 (330+ solved)',
-      'CodeChef DSA Rating: 1336 (190+ solved)',
+      'LeetCode : 330+ solved',
+      'CodeChef : 190+ solved',
       'Strong grasp of space-time complexity analysis',
     ],
     color: '#6366f1',
