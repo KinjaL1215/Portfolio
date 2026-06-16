@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { FiExternalLink, FiGithub, FiChevronDown, FiChevronUp, FiStar, FiGitBranch } from 'react-icons/fi'
+import { FiExternalLink, FiGithub, FiCode } from 'react-icons/fi'
 
-const featuredProjects = [
+const projects = [
   {
     id: 1,
     title: 'PrivacyGuard AI Financial RAG',
@@ -10,10 +10,9 @@ const featuredProjects = [
     description:
       'A privacy-preserving Retrieval-Augmented Generation (RAG) assistant for secure financial documents. Features semantic search, vector storage, and PII masking.',
     tech: ['Python', 'Flask', 'ChromaDB', 'SQLite', 'Pandas'],
-    color: '#f5a623',
-    featured: true,
-    github: 'https://github.com/MdShahil13/PrivacyGuard-AI-Financial-RAG-Assistant',
-    live: 'https://github.com/MdShahil13/PrivacyGuard-AI-Financial-RAG-Assistant',
+    color: '#3b82f6',
+    github: 'https://github.com/kinjalkharva/PrivacyGuard-AI-Financial-RAG-Assistant',
+    demo: '#',
     highlights: [
       'Engineered privacy-preserving secure RAG pipeline',
       'Integrated ChromaDB vector search for precision',
@@ -23,310 +22,158 @@ const featuredProjects = [
   {
     id: 2,
     title: 'AI Behavioral Analysis System',
-    category: 'Machine Learning',
+    category: 'AI & Backend',
     description:
       'A real-time behavioral analysis platform evaluating facial expressions, blink rates, and vocal patterns using computer vision and speech processing.',
     tech: ['Python', 'Flask', 'OpenCV', 'MediaPipe', 'Librosa', 'MongoDB', 'WebRTC'],
-    color: '#8b5cf6',
-    featured: true,
-    github: 'https://github.com/MdShahil13/AI-Based-Behavioral-Truth-Analysis',
-    live: 'https://github.com/MdShahil13/AI-Based-Behavioral-Truth-Analysis',
+    color: '#6366f1',
+    github: 'https://github.com/kinjalkharva/AI-Based-Behavioral-Truth-Analysis',
+    demo: '#',
     highlights: [
       'Face tracking & blink detection with OpenCV/MediaPipe',
       'Extracted audio features using Librosa processing',
       'Created WebRTC stream pipeline on Flask server',
     ],
   },
-  {
+   {
     id: 3,
-    title: 'CivicEyes Platform',
-    category: 'Full Stack',
+    title: 'Gesture-Controlled Virtual Mouse',
+    category: 'AI & Backend',
     description:
-      'A web-based application aimed at improving civic engagement and public issue reporting. Enables users to report, track, and resolve community issues.',
-    tech: ['React.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'Node.js'],
-    color: '#06b6d4',
-    featured: true,
-    github: 'https://github.com/MdShahil13/CivicEyes',
-    live: 'https://github.com/MdShahil13/CivicEyes',
+      'A Windows-based Python application that uses a webcam to control the mouse with hand gestures, featuring an AI assistant named Proton.',
+    tech: ['Python', 'OpenCV', 'MediaPipe', 'Eel', 'PyAutoGUI'],
+    color: '#8b5cf6',
+    github: 'https://github.com/KinjaL1215/Gesture-Controlled-Virtual-Mouse',
+    demo: '#',
     highlights: [
-      'Designed mobile-responsive React/Tailwind UI',
-      'Developed Node/Express REST APIs with MongoDB',
-      'Created multi-role civic engagement workflow',
+      'Hand gesture mouse control (Click, Drag, Scroll)',
+      'Proton voice assistant for desktop commands',
+      'Interactive Desktop UI built using the Eel framework',
     ],
   },
-]
-
-const allProjects = [
   {
     id: 4,
-    title: 'InferIQ',
-    category: 'AI & Backend',
-    description:
-      'An intelligent inference engine built with Python for smart data analysis and question-answering capabilities using AI-powered techniques.',
-    tech: ['Python', 'AI/ML', 'NLP'],
-    color: '#ec4899',
-    github: 'https://github.com/MdShahil13/InferIQ',
-    live: 'https://github.com/MdShahil13/InferIQ',
-  },
-  {
-    id: 5,
-    title: 'JobFit AI',
-    category: 'AI & Backend',
-    description:
-      'An AI-powered job fitness analyzer that matches candidate profiles with job descriptions using intelligent scoring and recommendation algorithms.',
-    tech: ['Python', 'AI/ML', 'NLP', 'Flask'],
-    color: '#10b981',
-    github: 'https://github.com/MdShahil13/JobFit-AI',
-    live: 'https://github.com/MdShahil13/JobFit-AI',
-  },
-
-  {
-    id: 7,
     title: 'Todo List with Email Reminders',
     category: 'Full Stack',
     description:
       'A Flask-based task management app that automatically sends email notifications via SMTP when scheduled task times arrive.',
     tech: ['Python', 'Flask', 'SMTP', 'HTML/CSS', 'SQLite'],
-    color: '#3b82f6',
-    github: 'https://github.com/MdShahil13/Todo-List-',
-    live: 'https://github.com/MdShahil13/Todo-List-',
+    color: '#10b981',
+    github: 'https://github.com/KinjaL1215/Todo_app.git',
+    demo: 'https://taskflow-5b7b.onrender.com/',
+    highlights: ['Automated SMTP email reminders', 'Task scheduling'],
   },
   {
-    id: 8,
+    id: 5,
     title: 'Weather App',
     category: 'Frontend',
     description:
       'A responsive weather application that fetches live weather data from an external API and displays temperature and conditions dynamically.',
     tech: ['JavaScript', 'HTML', 'CSS', 'REST API'],
-    color: '#0ea5e9',
-    github: 'https://github.com/MdShahil13/Weather',
-    live: 'https://github.com/MdShahil13/Weather',
+    color: '#f59e0b',
+    github: 'https://github.com/KinjaL1215/Weather.git',
+    demo: 'https://weather-kinjal.vercel.app',
+    highlights: ['Live API data fetching', 'Dynamic UI updates'],
   },
   {
-    id: 9,
+    id: 6,
     title: 'MovieExplorer',
     category: 'Frontend',
     description:
       'A movie details web app using JavaScript and OMDb API to fetch and display real-time movie information dynamically with search functionality.',
     tech: ['JavaScript', 'HTML', 'CSS', 'OMDb API'],
     color: '#ef4444',
-    github: 'https://github.com/MdShahil13/MovieExplorer',
-    live: 'https://github.com/MdShahil13/MovieExplorer',
+    github: 'https://github.com/KinjaL1215/MovieExplorer.git',
+    demo: 'https://movie-explorer-kinjal.vercel.app',
+    highlights: ['OMDb API integration', 'Real-time search'],
   },
-
+  
 ]
 
-const categories = ['All', 'AI & Backend', 'Full Stack', 'Frontend']
-
-function FeaturedProjectCard({ project, index, inView }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay: index * 0.15 }}
-      className="glass-card rounded-2xl overflow-hidden group relative"
-    >
-      {/* Top colored bar */}
-      <div
-        className="h-1.5 w-full"
-        style={{ background: `linear-gradient(90deg, ${project.color}, transparent)` }}
-      />
-
-      {/* Category Badge */}
-      <div className="absolute top-6 right-6">
-        <span
-          className="text-xs font-semibold px-3 py-1 rounded-full"
-          style={{
-            background: `${project.color}20`,
-            color: project.color,
-            border: `1px solid ${project.color}40`,
-          }}
-        >
-          {project.category}
-        </span>
-      </div>
-
-      <div className="p-7">
-        {/* Project number */}
-        <div
-          className="text-6xl font-black opacity-10 mb-2 select-none"
-          style={{ color: project.color }}
-        >
-          0{project.id}
-        </div>
-
-        {/* Title */}
-        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-yellow-400 transition-colors pr-20">
-          {project.title}
-        </h3>
-
-        {/* Description */}
-        <p className="text-gray-400 text-sm leading-relaxed mb-5">{project.description}</p>
-
-        {/* Highlights */}
-        <ul className="space-y-2 mb-6">
-          {project.highlights.map((h, i) => (
-            <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
-              <span className="mt-1 text-yellow-400 flex-shrink-0">▸</span>
-              {h}
-            </li>
-          ))}
-        </ul>
-
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tech.map(t => (
-            <span
-              key={t}
-              className="text-xs px-2.5 py-1 rounded-lg font-medium"
-              style={{
-                background: `${project.color}12`,
-                color: project.color,
-                border: `1px solid ${project.color}25`,
-              }}
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-
-        {/* Actions */}
-        <div className="flex items-center gap-3">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 text-gray-300 hover:text-white hover:border-white/30 text-sm transition-all duration-200"
-          >
-            <FiGithub size={15} />
-            Code
-          </a>
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
-            style={{
-              background: `${project.color}20`,
-              color: project.color,
-              border: `1px solid ${project.color}40`,
-            }}
-          >
-            <FiExternalLink size={15} />
-            Live Demo
-          </a>
-        </div>
-      </div>
-
-      {/* Bottom hover line */}
-      <div
-        className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-700"
-        style={{ background: `linear-gradient(90deg, ${project.color}, transparent)` }}
-      />
-    </motion.div>
-  )
-}
-
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, inView }) {
   return (
     <motion.div
       layout
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="glass-card rounded-xl overflow-hidden group relative hover:scale-[1.02] transition-transform duration-300"
+      whileHover={{ y: -10, scale: 1.02 }}
+      transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
+      className="border border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-gray-800/40 backdrop-blur-sm p-8 flex flex-col justify-between group hover:border-blue-200 dark:hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl rounded-2xl shadow-sm"
     >
-      {/* Top colored accent */}
-      <div
-        className="h-1 w-full"
-        style={{ background: `linear-gradient(90deg, ${project.color}, ${project.color}40)` }}
-      />
-
-      <div className="p-5">
-        {/* Header row */}
-        <div className="flex items-start justify-between mb-3">
-          <div
-            className="w-10 h-10 rounded-lg flex items-center justify-center text-lg"
-            style={{
-              background: `${project.color}15`,
-              border: `1px solid ${project.color}30`,
-            }}
-          >
-            <FiGitBranch style={{ color: project.color }} size={18} />
-          </div>
+      <div>
+        {/* Top bar with category & status */}
+        <div className="flex justify-between items-center mb-6 text-xs font-bold uppercase tracking-widest">
           <span
-            className="text-[10px] font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider"
+            className="px-2 py-1 border"
             style={{
               background: `${project.color}15`,
               color: project.color,
-              border: `1px solid ${project.color}30`,
+              borderColor: `${project.color}20`,
             }}
           >
             {project.category}
           </span>
+          <span className="text-gray-400 dark:text-gray-500">0{project.id}</span>
         </div>
 
-        {/* Title */}
-        <h3 className="text-base font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
+        {/* Project Title */}
+        <h3 className="text-gray-900 dark:text-white font-bold text-xl mb-4 uppercase transition-colors">
           {project.title}
         </h3>
 
         {/* Description */}
-        <p className="text-gray-400 text-xs leading-relaxed mb-4 line-clamp-3">
+        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 font-sans">
           {project.description}
         </p>
 
+        {/* Highlights */}
+        <div className="mb-6 space-y-2">
+          <span className="text-gray-500 dark:text-gray-500 text-xs font-bold uppercase tracking-widest block mb-2">Key Highlights:</span>
+          {project.highlights.map((h, i) => (
+            <div key={i} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300 font-sans">
+              <span style={{ color: project.color }} className="mt-0.5">▸</span>
+              <span>{h}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {project.tech.map(t => (
+        <div className="flex flex-wrap gap-2 mb-8">
+          {project.tech.map((t) => (
             <span
               key={t}
-              className="text-[10px] px-2 py-0.5 rounded-md font-medium"
-              style={{
-                background: `${project.color}10`,
-                color: `${project.color}cc`,
-                border: `1px solid ${project.color}20`,
-              }}
+              className="text-[11px] px-2.5 py-1 border bg-gray-50 dark:bg-gray-900 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-800 font-bold uppercase rounded-md"
             >
               {t}
             </span>
           ))}
         </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-2 pt-3 border-t border-white/5">
+        {/* Links */}
+        <div className="flex gap-6 pt-5 border-t border-gray-200 dark:border-gray-800 text-sm font-bold uppercase tracking-wider">
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 text-gray-400 hover:text-white hover:border-white/25 text-xs transition-all duration-200"
+            className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
-            <FiGithub size={12} />
-            Source
+            <FiGithub size={14} />
+            <span>Code</span>
           </a>
           <a
-            href={project.live}
+            href={project.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300"
-            style={{
-              background: `${project.color}15`,
-              color: project.color,
-              border: `1px solid ${project.color}30`,
-            }}
+            className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
-            <FiExternalLink size={12} />
-            View
+            <FiExternalLink size={14} />
+            <span>Live Demo</span>
           </a>
         </div>
       </div>
-
-      {/* Bottom hover glow */}
-      <div
-        className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-500"
-        style={{ background: `linear-gradient(90deg, ${project.color}, transparent)` }}
-      />
     </motion.div>
   )
 }
@@ -334,18 +181,16 @@ function ProjectCard({ project, index }) {
 export default function Projects() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
-  const [showAll, setShowAll] = useState(false)
-  const [activeFilter, setActiveFilter] = useState('All')
+  const [filter, setFilter] = useState('All')
+  const categories = ['All', 'AI & Backend', 'Full Stack', 'Frontend']
 
-  const filteredProjects =
-    activeFilter === 'All'
-      ? allProjects
-      : allProjects.filter(p => p.category === activeFilter)
+  const filteredProjects = filter === 'All' 
+    ? projects 
+    : projects.filter(p => p.category === filter)
 
   return (
-    <section id="projects" className="py-24 lg:py-32 relative">
-      <div className="absolute inset-0 bg-[#020816]" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/30 to-transparent" />
+    <section id="projects" className="py-24 lg:py-32 relative bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gray-200 dark:bg-gray-800" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         {/* Header */}
@@ -355,106 +200,72 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-6"
         >
-          <span className="text-yellow-400 font-medium tracking-widest uppercase text-sm">What I've Built</span>
-          <h2 className="section-heading mt-2 text-white">
-            Featured <span className="text-gradient">Projects</span>
+          <span className="text-gray-500 dark:text-gray-400 tracking-widest uppercase text-xs font-semibold">Portfolio</span>
+          <h2 className="section-heading mt-2 text-gray-900 dark:text-white">
+             <span className="text-gradient">FEATURED PROJECTS</span>
           </h2>
-          <div className="mt-4 w-16 h-1 gold-gradient rounded-full mx-auto" />
+          <div className="mt-4 w-16 h-[1px] bg-gray-300 dark:bg-gray-700 mx-auto" />
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center text-gray-400 max-w-2xl mx-auto mb-16"
+          className="text-center text-gray-600 dark:text-gray-400 font-medium uppercase text-sm tracking-wider max-w-2xl mx-auto mb-12"
         >
-          A selection of projects that reflect my skills in AI development,
-          backend engineering, and full-stack web development.
+         A selection of projects that reflect my skills in AI development, backend engineering, and full-stack web development.
         </motion.p>
 
-        {/* Featured Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-          {featuredProjects.map((project, idx) => (
-            <FeaturedProjectCard key={project.id} project={project} index={idx} inView={inView} />
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`px-6 py-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 border rounded-full ${
+                filter === cat
+                  ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900 border-gray-900 dark:border-white shadow-lg shadow-gray-200 dark:shadow-none'
+                  : 'text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600'
+              }`}
+            >
+              {cat}
+            </button>
           ))}
         </div>
 
-        {/* Divider & Toggle for All Projects */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 text-center"
+        {/* Projects Grid */}
+        <motion.div 
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
         >
-          <div className="flex items-center gap-4 justify-center mb-8">
-            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent to-yellow-500/30" />
-            <button
-              onClick={() => setShowAll(!showAll)}
-              className="group flex items-center gap-2 px-6 py-3 rounded-full border border-yellow-500/30 text-yellow-400 hover:bg-yellow-500/10 transition-all duration-300 text-sm font-medium"
-            >
-              <FiStar size={14} className="group-hover:rotate-72 transition-transform duration-300" />
-              {showAll ? 'Show Less' : `View All Projects (${allProjects.length} more)`}
-              {showAll ? <FiChevronUp size={14} /> : <FiChevronDown size={14} />}
-            </button>
-            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-l from-transparent to-yellow-500/30" />
-          </div>
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                inView={inView}
+              />
+            ))}
+          </AnimatePresence>
         </motion.div>
-
-        {/* Expandable All Projects Section */}
-        <AnimatePresence>
-          {showAll && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              className="overflow-hidden"
-            >
-              {/* Category Filter Tabs */}
-              <div className="flex flex-wrap justify-center gap-2 mb-8">
-                {categories.map(cat => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveFilter(cat)}
-                    className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 border ${
-                      activeFilter === cat
-                        ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/40'
-                        : 'bg-white/5 text-gray-400 border-white/10 hover:bg-white/10 hover:text-white'
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-
-              {/* More Projects Grid */}
-              <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <AnimatePresence mode="popLayout">
-                  {filteredProjects.map((project, idx) => (
-                    <ProjectCard key={project.id} project={project} index={idx} />
-                  ))}
-                </AnimatePresence>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
         {/* GitHub CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-12"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-20 text-center border-t border-gray-100 dark:border-gray-800 pt-16"
         >
-          <p className="text-gray-400 mb-4">Want to see more of my work?</p>
+          <p className="text-gray-700 dark:text-gray-300 text-xl font-medium mb-6">Want to see more of my work?</p>
           <a
-            href="https://github.com/MdShahil13"
+            href="https://github.com/KinjaL1215"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 btn-outline"
+            className="btn-primary inline-flex items-center gap-3 px-8 py-3"
           >
-            <FiGithub size={18} />
-            View All on GitHub
+            <FiGithub size={20} />
+            <span>View All on GitHub</span>
           </a>
         </motion.div>
       </div>

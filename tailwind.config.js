@@ -8,48 +8,37 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: {
-          950: '#111011',
-          900: '#1c1a1f',
-          800: '#282629',
-          700: '#3c3940',
-          600: '#575154',
+        cyber: {
+          bg: '#111011',        // Main background
+          panel: '#1E1D18',     // Charcoal sections
+          card: '#1E1D18',      // Charcoal sections
+          border: '#3C3B3D',    // Lighter glow/border
+          glow: '#3C3B3D',      // Lighter glow
+          accent: '#C5BB82',    // Gold/Beige accent
+          primary: '#C5BB82',   // Gold/Beige primary
         },
-        gold: {
-          400: '#d4c6a3',
-          500: '#959650',
-          600: '#797b3d',
-        },
-        yellow: {
-          50: '#f9f8f6',
-          100: '#f1efe9',
-          200: '#e5e1d5',
-          300: '#d4c6a3',
-          400: '#b8aa84',
-          500: '#959650',
-          600: '#797b3d',
-          700: '#5c5e2e',
-          800: '#434422',
-          900: '#2d2e17',
-          950: '#1e1f0e',
-        },
-        accent: '#959650',
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
+        orbitron: ['system-ui', '-apple-system', 'sans-serif'],
+        rajdhani: ['system-ui', '-apple-system', 'sans-serif'],
+        'tech-mono': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+        tech: ['system-ui', '-apple-system', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'spin-slow': 'spin 8s linear infinite',
+        'spin-slow': 'spin 15s linear infinite',
+        'spin-slow-reverse': 'spin-reverse 12s linear infinite',
         'gradient': 'gradient 8s ease infinite',
         'shimmer': 'shimmer 2s linear infinite',
+        'scanline': 'scanline 8s linear infinite',
+        'cyber-pulse': 'cyber-pulse 4s ease-in-out infinite',
+        'cyber-rotate': 'cyber-rotate 12s linear infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
+          '50%': { transform: 'translateY(-15px)' },
         },
         gradient: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
@@ -58,6 +47,22 @@ export default {
         shimmer: {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
+        },
+        scanline: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100%)' },
+        },
+        'spin-reverse': {
+          '0%': { transform: 'rotate(360deg)' },
+          '100%': { transform: 'rotate(0deg)' },
+        },
+        'cyber-pulse': {
+          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+          '50%': { transform: 'scale(1.03)', opacity: '0.92' },
+        },
+        'cyber-rotate': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
       },
       backgroundSize: {

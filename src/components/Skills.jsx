@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion'
 const skillCategories = [
   {
     title: 'DSA & Core CS',
-    color: '#f5a623',
+    color: '#2563eb',
     skills: [
       { name: 'Data Structures & Algorithms', level: 85 },
       { name: 'OOP Concepts', level: 85 },
@@ -14,7 +14,7 @@ const skillCategories = [
   },
   {
     title: 'Backend & Databases',
-    color: '#8b5cf6',
+    color: '#4f46e5',
     skills: [
       { name: 'Python / Flask', level: 85 },
       { name: 'Express.js & MongoDB', level: 75 },
@@ -24,7 +24,7 @@ const skillCategories = [
   },
   {
     title: 'Languages',
-    color: '#06b6d4',
+    color: '#0284c7',
     skills: [
       { name: 'Python & Java', level: 88 },
       { name: 'C / C++', level: 80 },
@@ -34,7 +34,7 @@ const skillCategories = [
   },
   {
     title: 'Technologies & Tools',
-    color: '#10b981',
+    color: '#7c3aed',
     skills: [
       { name: 'Machine Learning (OpenCV/MediaPipe)', level: 80 },
       { name: 'AWS Cloud', level: 70 },
@@ -51,30 +51,30 @@ function SkillBar({ name, level, color, delay }) {
 
   useEffect(() => {
     if (inView) {
-      const t = setTimeout(() => setAnimated(true), delay * 100)
+      const t = setTimeout(() => setAnimated(true), delay * 80)
       return () => clearTimeout(t)
     }
   }, [inView, delay])
 
   return (
-    <div ref={ref} className="mb-5">
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-gray-300 text-sm font-medium">{name}</span>
-        <span className="text-sm font-bold" style={{ color }}>{level}%</span>
+    <div ref={ref} className="mb-5 font-tech">
+      <div className="flex justify-between items-center mb-1.5 text-sm">
+        <span className="text-gray-500 dark:text-gray-400 uppercase tracking-widest font-medium">{name}</span>
+        <span className="font-bold tracking-widest text-base" style={{ color }}>{level}%</span>
       </div>
-      <div className="h-2 bg-white/5 rounded-full overflow-hidden border border-white/5">
+      <div className="h-2 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 p-[1px] relative">
         <motion.div
           initial={{ width: 0 }}
           animate={animated ? { width: `${level}%` } : { width: 0 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="h-full rounded-full relative"
+          className="h-full relative"
           style={{
-            background: `linear-gradient(90deg, ${color}99, ${color})`,
-            boxShadow: `0 0 10px ${color}40`,
+            background: `linear-gradient(90deg, ${color}77, ${color})`,
+            boxShadow: `0 0 8px ${color}60`,
           }}
         >
-          <span className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 border-[#060d1f]"
-            style={{ background: color }} />
+          <span className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-3 bg-white" 
+            style={{ boxShadow: `0 0 5px ${color}` }} />
         </motion.div>
       </div>
     </div>
@@ -86,14 +86,14 @@ export default function Skills() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   const techStack = [
-    'Python', 'Java', 'C++', 'JavaScript', 'React.js', 'Flask', 'Express.js',
-    'MongoDB', 'SQL', 'Machine Learning', 'OpenCV', 'MediaPipe', 'ChromaDB', 'AWS', 'Git', 'DSA'
+    'Python', 'Java', 'SQL','Node js', 'Flask', 'Express.js',
+    'MongoDB', 'SQLAlchemy', 'ChromaDB', 'Machine Learning', 
+    'OpenCV', 'MediaPipe', 'Pandas', 'AWS', 'Git', 'GitHub', 'VS Code', 'DSA'
   ]
 
   return (
-    <section id="skills" className="py-24 lg:py-32 relative">
-      <div className="absolute inset-0 bg-[#020816]" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/30 to-transparent" />
+    <section id="skills" className="py-24 lg:py-32 relative bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gray-200 dark:bg-gray-800" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         {/* Header */}
@@ -103,21 +103,20 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-6"
         >
-          <span className="text-yellow-400 font-medium tracking-widest uppercase text-sm">What I Know</span>
-          <h2 className="section-heading mt-2 text-white">
-            My <span className="text-gradient">Skills</span>
+          <span className="text-gray-500 dark:text-gray-400 tracking-widest uppercase text-xs font-semibold">Expertise</span>
+          <h2 className="section-heading mt-2 text-gray-900 dark:text-white">
+            MY <span className="text-gradient">SKILLS</span>
           </h2>
-          <div className="mt-4 w-16 h-1 gold-gradient rounded-full mx-auto" />
+          <div className="mt-4 w-16 h-[1px] bg-gray-300 dark:bg-gray-700 mx-auto" />
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center text-gray-400 max-w-2xl mx-auto mb-16"
+          className="text-center text-gray-400 font-tech uppercase text-xs tracking-wider max-w-2xl mx-auto mb-16"
         >
-          All the skills I've developed through academic learning, personal projects,
-          and real-world problem solving — with a strong focus on backend & DSA.
+          All the skills I've developed through academic learning, personal projects, and real-world problem solving — with a strong focus on backend & DSA.
         </motion.p>
 
         {/* Skill Categories Grid */}
@@ -128,15 +127,15 @@ export default function Skills() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: catIdx * 0.15 }}
-              className="glass-card p-6 rounded-2xl hover:transform-none"
+              className="border border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/40 p-6 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300"
             >
               {/* Category Header */}
               <div className="flex items-center gap-3 mb-6">
                 <div
-                  className="w-1 h-8 rounded-full"
-                  style={{ background: category.color }}
+                  className="w-1.5 h-6"
+                  style={{ background: category.color, boxShadow: `0 0 8px ${category.color}` }}
                 />
-                <h3 className="text-white font-bold text-lg">{category.title}</h3>
+                <h3 className="text-gray-900 dark:text-white font-bold tracking-widest text-sm uppercase">{category.title}</h3>
               </div>
 
               {/* Skill Bars */}
@@ -160,15 +159,15 @@ export default function Skills() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center"
         >
-          <h3 className="text-white font-bold text-xl mb-6">Technology Stack</h3>
+          <h3 className="text-gray-900 dark:text-white font-bold tracking-widest text-sm mb-6 uppercase">Tech Stack</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {techStack.map((tech, i) => (
               <motion.span
                 key={tech}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 0.7 + i * 0.05 }}
-                className="px-4 py-2 rounded-full text-sm font-medium border border-yellow-500/20 bg-yellow-500/5 text-yellow-400 hover:bg-yellow-500/15 hover:border-yellow-500/40 transition-all duration-300 cursor-default"
+                transition={{ duration: 0.4, delay: 0.7 + i * 0.04 }}
+                className="px-4 py-2 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-bold text-xs tracking-wider uppercase hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300 cursor-default"
               >
                 {tech}
               </motion.span>

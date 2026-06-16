@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiMenu, FiX, FiHome, FiUser, FiCode, FiBriefcase, FiLayers, FiFileText, FiMail } from 'react-icons/fi'
+import { FiMenu, FiX, FiHome, FiUser, FiCode, FiBriefcase, FiLayers, FiFileText, FiMail, FiSun, FiMoon } from 'react-icons/fi'
 import logoImg from '../assets/logo.png'
 
 const navItems = [
@@ -13,7 +13,7 @@ const navItems = [
   { label: 'Contact', href: '#contact', icon: FiMail },
 ]
 
-export default function Navbar() {
+export default function Navbar({ darkMode, setDarkMode }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
@@ -83,9 +83,9 @@ export default function Navbar() {
       initial={{ y: -80, x: "-50%", opacity: 0 }}
       animate={{ y: 0, x: "-50%", opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 sm:top-4 left-1/2 w-full sm:w-[95%] max-w-7xl z-50 transition-all duration-500 sm:rounded-2xl ${
+      className={`fixed top-0 sm:top-6 left-1/2 w-full sm:w-[90%] max-w-7xl z-50 transition-all duration-500 sm:rounded-2xl border-b sm:border border-gray-200 dark:border-gray-800 ${
         scrolled
-          ? 'bg-[#1c1a1f]/70 backdrop-blur-2xl border border-yellow-500/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)]'
+          ? 'bg-white/85 dark:bg-gray-900/85 backdrop-blur-2xl shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -97,14 +97,14 @@ export default function Navbar() {
               onClick={() => scrollTo('#home')}
               className="flex items-center gap-2 group focus:outline-none"
             >
-              <img
-                src={logoImg}
-                alt="Mohammad Shahil Logo"
-                className="w-10 h-10 rounded-xl object-cover group-hover:scale-110 transition-transform duration-300 shadow-lg"
-                style={{ boxShadow: '0 0 12px rgba(149,150,80,0.4)' }}
-              />
-              <span className="font-bold text-white text-lg hidden sm:block group-hover:text-yellow-400 transition-colors">
-                Shahil<span className="text-yellow-400">.</span>
+              <div 
+                className="w-10 h-10 rounded-xl bg-gray-900 dark:bg-white flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg overflow-hidden"
+                style={{ boxShadow: '0 0 12px rgba(59, 130, 246, 0.3)' }}
+              >
+                <img src={logoImg} alt="KK Logo" className="w-full h-full object-cover" />
+              </div>
+              <span className="font-bold text-gray-900 dark:text-white text-xl hidden sm:block transition-colors tracking-tight">
+                Kinjal<span className="text-gray-400">.</span>
               </span>
             </button>
           </div>
@@ -119,16 +119,16 @@ export default function Navbar() {
                   key={item.label}
                   ref={el => navRefs.current[index] = el}
                   onClick={() => scrollTo(item.href)}
-                  className="relative group px-2 xl:px-3 py-2 rounded-xl focus:outline-none"
+                  className="relative group px-2 xl:px-3 py-2 focus:outline-none"
                 >
                   <motion.div
-                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileHover={{ scale: 1.05, y: -1 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`flex items-center gap-1.5 xl:gap-2 text-sm font-medium transition-colors duration-300 ${
-                      isActive ? 'text-yellow-400' : 'text-gray-300 hover:text-white'
+                    className={`flex items-center gap-1.5 xl:gap-2 text-sm font-bold transition-colors duration-300 tracking-wide uppercase ${
+                      isActive ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                     }`}
                   >
-                    <Icon size={16} className={isActive ? 'drop-shadow-[0_0_8px_rgba(149,150,80,0.8)]' : 'group-hover:text-yellow-400 transition-colors'} />
+                    <Icon size={14} className={isActive ? 'text-blue-500' : 'group-hover:text-blue-500 transition-colors'} />
                     {item.label}
                   </motion.div>
                 </button>
@@ -137,25 +137,32 @@ export default function Navbar() {
             
             {/* Absolute Sliding Indicator */}
             <motion.div
-              className="absolute bottom-0 w-6 h-1 bg-yellow-400 rounded-full pointer-events-none"
+              className="absolute bottom-1 w-6 h-0.5 bg-blue-500 rounded-full pointer-events-none"
               initial={false}
               animate={{ 
                 left: indicatorStyle.left,
                 opacity: indicatorStyle.opacity 
               }}
-              transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              style={{ boxShadow: '0 0 8px rgba(149,150,80,0.8)' }}
+              transition={{ type: "spring", stiffness: 350, damping: 25 }}
             />
           </div>
 
           {/* CTA & Mobile Toggle (Right) */}
           <div className="flex flex-1 justify-end items-center gap-4">
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle Theme"
+            >
+              {darkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
+            </button>
+
             <div className="hidden sm:block">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollTo('#contact')}
-                className="btn-primary text-sm px-6 py-2.5 rounded-xl font-semibold text-[#111011] shadow-lg shadow-yellow-500/20"
+                className="btn-primary text-sm px-6 py-2.5 font-bold rounded-xl shadow-md shadow-blue-500/10"
               >
                 Hire Me
               </motion.button>
@@ -164,7 +171,7 @@ export default function Navbar() {
             <button
               id="mobile-menu-toggle"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden p-2 rounded-xl text-gray-300 hover:text-yellow-400 hover:bg-white/10 transition-colors focus:outline-none"
+              className="lg:hidden p-2 rounded-xl text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-white transition-colors focus:outline-none"
             >
               {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
@@ -180,7 +187,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-[#1c1a1f]/95 backdrop-blur-3xl border-t border-yellow-500/10 rounded-b-2xl overflow-hidden"
+            className="lg:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-3xl border-t border-gray-100 dark:border-gray-800 overflow-hidden"
           >
             <div className="px-4 py-4 space-y-1">
               {navItems.map((item) => {
@@ -190,20 +197,20 @@ export default function Navbar() {
                   <button
                     key={item.label}
                     onClick={() => scrollTo(item.href)}
-                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-sm transition-all ${
+                    className={`w-full flex items-center gap-3 px-4 py-3 font-semibold text-sm transition-all tracking-widest uppercase rounded-lg ${
                       isActive
-                        ? 'text-yellow-400 bg-yellow-400/10'
-                        : 'text-gray-300 hover:text-yellow-400 hover:bg-white/5'
+                        ? 'text-blue-500 bg-blue-50 dark:bg-blue-900/20'
+                        : 'text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800'
                     }`}
                   >
-                    <Icon size={18} />
+                    <Icon size={16} />
                     {item.label}
                   </button>
                 )
               })}
               <button
                 onClick={() => scrollTo('#contact')}
-                className="w-full mt-4 btn-primary text-sm py-3 rounded-xl text-center text-[#111011] sm:hidden"
+                className="w-full mt-4 btn-primary text-xs py-3 text-center sm:hidden"
               >
                 Hire Me
               </button>

@@ -1,4 +1,4 @@
-# Mohammad Shahil — Personal Portfolio Website
+# Mohammad kinjal — Personal Portfolio Website
 
 A modern personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion.
 
@@ -38,8 +38,7 @@ npm run preview
 ```
 
 ## Author
+Kinjal Kharva
 
-Mohammad Shahil
-
-GitHub: https://github.com/MdShahil13
+GitHub: https://github.com/KinjaL1215
 LinkedIn: Add your LinkedIn URL
