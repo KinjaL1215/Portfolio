@@ -8,7 +8,7 @@ const education = [
     degree: 'B.Tech in Computer Science Engineering',
     institution: 'Parul University, Vadodara',
     period: '2023 – 2027',
-    grade: 'CGPA: 8.72 / 10.0',
+    grade: 'CGPA: 8.77 / 10.0',
     location: 'Vadodara, India',
     desc: 'Pursuing a Bachelor of Technology in Computer Science with a strong focus on Data Structures, Algorithms, OOP, Database Management, and Machine Learning.',
     highlights: ['DSA & OOP', 'DBMS & Networks', 'Machine Learning', 'Python & Java'],

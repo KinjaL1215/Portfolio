@@ -5,6 +5,22 @@ import { FiExternalLink, FiGithub, FiCode } from 'react-icons/fi'
 const projects = [
   {
     id: 1,
+    title: 'AI SQL Assistant',
+    category: 'AI & Backend',
+    description:
+      'An AI-powered SQL assistant that turns natural-language questions into secure, read-only PostgreSQL queries and presents results in an interactive dashboard.',
+    tech: ['FastAPI', 'React.js', 'PostgreSQL', 'SQLAlchemy', 'Pandas', 'Groq API', 'Ollama'],
+    color: '#06b6d4',
+    github: 'https://github.com/KinjaL1215/ai_sql_assistent.git',
+    demo: 'https://sqlassistant.onrender.com/',
+    highlights: [
+      'Converts natural-language requests into validated read-only SQL',
+      'Supports CSV and Excel uploads with automatic schema detection',
+      'Provides schema inspection, CSV export, and query visualizations',
+    ],
+  },
+  {
+    id: 2,
     title: 'PrivacyGuard AI Financial RAG',
     category: 'AI & Backend',
     description:
@@ -20,7 +36,7 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: 'AI Behavioral Analysis System',
     category: 'AI & Backend',
     description:
@@ -36,7 +52,7 @@ const projects = [
     ],
   },
    {
-    id: 3,
+    id: 4,
     title: 'Gesture-Controlled Virtual Mouse',
     category: 'AI & Backend',
     description:
@@ -52,7 +68,7 @@ const projects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: 'Todo List with Email Reminders',
     category: 'Full Stack',
     description:
@@ -64,7 +80,7 @@ const projects = [
     highlights: ['Automated SMTP email reminders', 'Task scheduling'],
   },
   {
-    id: 5,
+    id: 6,
     title: 'Weather App',
     category: 'Frontend',
     description:
@@ -76,7 +92,7 @@ const projects = [
     highlights: ['Live API data fetching', 'Dynamic UI updates'],
   },
   {
-    id: 6,
+    id: 7,
     title: 'MovieExplorer',
     category: 'Frontend',
     description:

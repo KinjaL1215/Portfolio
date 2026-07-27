@@ -8,7 +8,7 @@ const highlights = [
   { icon: FiCode, label: 'Full Stack', desc: 'Flask, Python' },
   { icon: FiDatabase, label: 'Backend & ML', desc: 'Flask, ChromaDB,SQL, MongoDB' },
   { icon: FiCpu, label: 'DSA Solver', desc: '500+ Problems' },
-  { icon: FiTarget, label: 'CGPA Integrity', desc: '8.72 / 10.0' },
+  { icon: FiTarget, label: 'CGPA Integrity', desc: '8.77 / 10.0' },
 ]
 
 const infoItems = [
@@ -18,7 +18,7 @@ const infoItems = [
   { label: 'Location', value: 'Vadodara,Gujarat,India' },
   { label: 'Institution', value: 'Parul University' },
   { label: 'Program', value: 'B.Tech CSE (2023–2027)' },
-  { label: 'CGPA', value: '8.72 / 10.0' },
+  { label: 'CGPA', value: '8.77 / 10.0' },
   { label: 'Availability', value: 'Open to Opportunities' },
 ]
 

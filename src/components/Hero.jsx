@@ -146,8 +146,8 @@ export default function Hero() {
             {/* Stats */}
             <motion.div variants={itemVariants} className="flex gap-8 mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
               {[
-                { label: 'CGPA', value: '8.72' },
-                { label: 'PROJECTS', value: '06' },
+                { label: 'CGPA', value: '8.77' },
+                { label: 'PROJECTS', value: '07' },
                 { label: 'DSA SOLVED', value: '500+' },
               ].map(({ label, value }) => (
                 <div key={label} className="text-left">
